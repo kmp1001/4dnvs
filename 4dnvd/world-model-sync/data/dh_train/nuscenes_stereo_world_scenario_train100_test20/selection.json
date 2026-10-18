@@ -1,0 +1,875 @@
+{
+  "seed": 42,
+  "source_configs": {
+    "train_LR": {
+      "path": "/fs/nexus-projects/AD_dashrecon/world-model-phucnda-wm/feature-match/UFM/src/config/stereo/train_nuscene_LR.yaml",
+      "sha256": "fb2a1b718a7a013e8489f8deeaadc71b3d1eed1834eb210f38402b0ed6478f1a"
+    },
+    "train_RL": {
+      "path": "/fs/nexus-projects/AD_dashrecon/world-model-phucnda-wm/feature-match/UFM/src/config/stereo/train_nuscene_RL.yaml",
+      "sha256": "4d78cfbd9fc9446f16a8994cc34ae8c4f023f1dec46abc874a16390e7cc96c8c"
+    },
+    "test_LR": {
+      "path": "/fs/nexus-projects/AD_dashrecon/world-model-phucnda-wm/feature-match/UFM/src/config/stereo/test_nuscene_LR.yaml",
+      "sha256": "9c06b99ab5b486c9e0433dcf80fd06b6cf50f97a354858e3c296610446764141"
+    },
+    "test_RL": {
+      "path": "/fs/nexus-projects/AD_dashrecon/world-model-phucnda-wm/feature-match/UFM/src/config/stereo/test_nuscene_RL.yaml",
+      "sha256": "9d7d25620e1866f105616ded63576cb91b729394c946c6a761d8d572e5c50ba7"
+    }
+  },
+  "splits": {
+    "train": [
+      {
+        "index": 6,
+        "scene": "scene-0008",
+        "native_split": "train",
+        "native_frames": 190,
+        "frame_limit": 100
+      },
+      {
+        "index": 25,
+        "scene": "scene-0034",
+        "native_split": "train",
+        "native_frames": 190,
+        "frame_limit": 100
+      },
+      {
+        "index": 27,
+        "scene": "scene-0042",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 30,
+        "scene": "scene-0046",
+        "native_split": "train",
+        "native_frames": 190,
+        "frame_limit": 100
+      },
+      {
+        "index": 32,
+        "scene": "scene-0048",
+        "native_split": "train",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 44,
+        "scene": "scene-0060",
+        "native_split": "train",
+        "native_frames": 192,
+        "frame_limit": 100
+      },
+      {
+        "index": 46,
+        "scene": "scene-0062",
+        "native_split": "train",
+        "native_frames": 191,
+        "frame_limit": 100
+      },
+      {
+        "index": 57,
+        "scene": "scene-0074",
+        "native_split": "train",
+        "native_frames": 192,
+        "frame_limit": 100
+      },
+      {
+        "index": 67,
+        "scene": "scene-0127",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 71,
+        "scene": "scene-0131",
+        "native_split": "train",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 73,
+        "scene": "scene-0133",
+        "native_split": "train",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 80,
+        "scene": "scene-0151",
+        "native_split": "train",
+        "native_frames": 189,
+        "frame_limit": 100
+      },
+      {
+        "index": 81,
+        "scene": "scene-0152",
+        "native_split": "train",
+        "native_frames": 191,
+        "frame_limit": 100
+      },
+      {
+        "index": 89,
+        "scene": "scene-0162",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 94,
+        "scene": "scene-0167",
+        "native_split": "train",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 95,
+        "scene": "scene-0168",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 99,
+        "scene": "scene-0173",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 103,
+        "scene": "scene-0177",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 104,
+        "scene": "scene-0178",
+        "native_split": "train",
+        "native_frames": 191,
+        "frame_limit": 100
+      },
+      {
+        "index": 114,
+        "scene": "scene-0190",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 127,
+        "scene": "scene-0208",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 142,
+        "scene": "scene-0228",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 146,
+        "scene": "scene-0232",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 159,
+        "scene": "scene-0245",
+        "native_split": "train",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 163,
+        "scene": "scene-0249",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 166,
+        "scene": "scene-0252",
+        "native_split": "train",
+        "native_frames": 192,
+        "frame_limit": 100
+      },
+      {
+        "index": 167,
+        "scene": "scene-0253",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 175,
+        "scene": "scene-0262",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 196,
+        "scene": "scene-0302",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 203,
+        "scene": "scene-0318",
+        "native_split": "train",
+        "native_frames": 191,
+        "frame_limit": 100
+      },
+      {
+        "index": 214,
+        "scene": "scene-0353",
+        "native_split": "train",
+        "native_frames": 191,
+        "frame_limit": 100
+      },
+      {
+        "index": 216,
+        "scene": "scene-0355",
+        "native_split": "train",
+        "native_frames": 192,
+        "frame_limit": 100
+      },
+      {
+        "index": 217,
+        "scene": "scene-0356",
+        "native_split": "train",
+        "native_frames": 191,
+        "frame_limit": 100
+      },
+      {
+        "index": 220,
+        "scene": "scene-0359",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 223,
+        "scene": "scene-0362",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 224,
+        "scene": "scene-0363",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 225,
+        "scene": "scene-0364",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 228,
+        "scene": "scene-0368",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 233,
+        "scene": "scene-0374",
+        "native_split": "train",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 234,
+        "scene": "scene-0375",
+        "native_split": "train",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 238,
+        "scene": "scene-0380",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 250,
+        "scene": "scene-0393",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 252,
+        "scene": "scene-0395",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 270,
+        "scene": "scene-0415",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 271,
+        "scene": "scene-0416",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 273,
+        "scene": "scene-0418",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 274,
+        "scene": "scene-0419",
+        "native_split": "train",
+        "native_frames": 200,
+        "frame_limit": 100
+      },
+      {
+        "index": 276,
+        "scene": "scene-0422",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 281,
+        "scene": "scene-0427",
+        "native_split": "train",
+        "native_frames": 197,
+        "frame_limit": 100
+      },
+      {
+        "index": 284,
+        "scene": "scene-0430",
+        "native_split": "train",
+        "native_frames": 197,
+        "frame_limit": 100
+      },
+      {
+        "index": 296,
+        "scene": "scene-0443",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 300,
+        "scene": "scene-0447",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 322,
+        "scene": "scene-0474",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 323,
+        "scene": "scene-0475",
+        "native_split": "train",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 332,
+        "scene": "scene-0502",
+        "native_split": "train",
+        "native_frames": 197,
+        "frame_limit": 100
+      },
+      {
+        "index": 344,
+        "scene": "scene-0518",
+        "native_split": "train",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 348,
+        "scene": "scene-0528",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 352,
+        "scene": "scene-0532",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 363,
+        "scene": "scene-0544",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 367,
+        "scene": "scene-0568",
+        "native_split": "train",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 370,
+        "scene": "scene-0572",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 373,
+        "scene": "scene-0575",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 379,
+        "scene": "scene-0584",
+        "native_split": "train",
+        "native_frames": 197,
+        "frame_limit": 100
+      },
+      {
+        "index": 387,
+        "scene": "scene-0592",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 388,
+        "scene": "scene-0593",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 389,
+        "scene": "scene-0594",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 405,
+        "scene": "scene-0649",
+        "native_split": "train",
+        "native_frames": 200,
+        "frame_limit": 100
+      },
+      {
+        "index": 410,
+        "scene": "scene-0655",
+        "native_split": "train",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 429,
+        "scene": "scene-0674",
+        "native_split": "train",
+        "native_frames": 197,
+        "frame_limit": 100
+      },
+      {
+        "index": 432,
+        "scene": "scene-0677",
+        "native_split": "train",
+        "native_frames": 200,
+        "frame_limit": 100
+      },
+      {
+        "index": 459,
+        "scene": "scene-0714",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 464,
+        "scene": "scene-0719",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 469,
+        "scene": "scene-0731",
+        "native_split": "train",
+        "native_frames": 197,
+        "frame_limit": 100
+      },
+      {
+        "index": 470,
+        "scene": "scene-0733",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 473,
+        "scene": "scene-0737",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 511,
+        "scene": "scene-0812",
+        "native_split": "train",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 517,
+        "scene": "scene-0820",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 546,
+        "scene": "scene-0877",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 549,
+        "scene": "scene-0882",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 558,
+        "scene": "scene-0891",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 565,
+        "scene": "scene-0900",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 570,
+        "scene": "scene-0947",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 574,
+        "scene": "scene-0955",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 580,
+        "scene": "scene-0961",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 591,
+        "scene": "scene-0990",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 603,
+        "scene": "scene-1003",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 604,
+        "scene": "scene-1004",
+        "native_split": "train",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 616,
+        "scene": "scene-1017",
+        "native_split": "train",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 618,
+        "scene": "scene-1021",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 632,
+        "scene": "scene-1054",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 638,
+        "scene": "scene-1075",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 643,
+        "scene": "scene-1080",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 654,
+        "scene": "scene-1092",
+        "native_split": "train",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 658,
+        "scene": "scene-1096",
+        "native_split": "train",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 659,
+        "scene": "scene-1097",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 662,
+        "scene": "scene-1100",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 663,
+        "scene": "scene-1101",
+        "native_split": "train",
+        "native_frames": 196,
+        "frame_limit": 100
+      },
+      {
+        "index": 664,
+        "scene": "scene-1102",
+        "native_split": "train",
+        "native_frames": 197,
+        "frame_limit": 100
+      },
+      {
+        "index": 666,
+        "scene": "scene-1106",
+        "native_split": "train",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 670,
+        "scene": "scene-1110",
+        "native_split": "train",
+        "native_frames": 195,
+        "frame_limit": 100
+      }
+    ],
+    "test": [
+      {
+        "index": 6,
+        "scene": "scene-0017",
+        "native_split": "val",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 7,
+        "scene": "scene-0018",
+        "native_split": "val",
+        "native_frames": 193,
+        "frame_limit": 100
+      },
+      {
+        "index": 8,
+        "scene": "scene-0035",
+        "native_split": "val",
+        "native_frames": 191,
+        "frame_limit": 100
+      },
+      {
+        "index": 22,
+        "scene": "scene-0102",
+        "native_split": "val",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 23,
+        "scene": "scene-0103",
+        "native_split": "val",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 26,
+        "scene": "scene-0106",
+        "native_split": "val",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 28,
+        "scene": "scene-0108",
+        "native_split": "val",
+        "native_frames": 192,
+        "frame_limit": 100
+      },
+      {
+        "index": 35,
+        "scene": "scene-0272",
+        "native_split": "val",
+        "native_frames": 192,
+        "frame_limit": 100
+      },
+      {
+        "index": 50,
+        "scene": "scene-0521",
+        "native_split": "val",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 55,
+        "scene": "scene-0553",
+        "native_split": "val",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 56,
+        "scene": "scene-0554",
+        "native_split": "val",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 57,
+        "scene": "scene-0555",
+        "native_split": "val",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 59,
+        "scene": "scene-0557",
+        "native_split": "val",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 62,
+        "scene": "scene-0560",
+        "native_split": "val",
+        "native_frames": 194,
+        "frame_limit": 100
+      },
+      {
+        "index": 70,
+        "scene": "scene-0627",
+        "native_split": "val",
+        "native_frames": 198,
+        "frame_limit": 100
+      },
+      {
+        "index": 107,
+        "scene": "scene-0916",
+        "native_split": "val",
+        "native_frames": 200,
+        "frame_limit": 100
+      },
+      {
+        "index": 108,
+        "scene": "scene-0917",
+        "native_split": "val",
+        "native_frames": 199,
+        "frame_limit": 100
+      },
+      {
+        "index": 129,
+        "scene": "scene-0972",
+        "native_split": "val",
+        "native_frames": 197,
+        "frame_limit": 100
+      },
+      {
+        "index": 139,
+        "scene": "scene-1068",
+        "native_split": "val",
+        "native_frames": 195,
+        "frame_limit": 100
+      },
+      {
+        "index": 143,
+        "scene": "scene-1072",
+        "native_split": "val",
+        "native_frames": 195,
+        "frame_limit": 100
+      }
+    ]
+  },
+  "source_camera": "pcam_f0",
+  "target_cameras": {
+    "LR": "pcam_r0",
+    "RL": "pcam_l0"
+  },
+  "references": 4,
+  "min_reference_visibility": 1000,
+  "include_current_reference": false
+}

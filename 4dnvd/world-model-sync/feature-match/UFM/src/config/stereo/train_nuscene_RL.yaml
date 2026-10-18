@@ -1,0 +1,132 @@
+runtime:
+  device: auto
+  gpu: 4
+  seed: 42
+  process_first_sample_per_batch_only: true
+  verbose_render: false
+  verbose_render_instance: false
+  verbose_reference_ranking: false
+  print_da3_traceback: true
+visualize:
+  enabled: false
+  output_subdir: visualization
+  fps: 10
+  overlay_alpha: 0.50
+  draw_ids: true
+paths:
+  temp_path: /project/data
+  av2_path: /project/data/raw_data/av2
+  nusc_path: /project/data/raw_data/nusc
+  output_dir: ../../data/dh_train/trainval_nuscenes_stereo_4m_final
+  front_source: front_source
+  front_target: front_target
+  front_warped: front_warped
+  confident_coverage_subdir: confident_coverage
+  static_hole_subdir: static_holes
+  dynamic_hole_subdir: dynamic_holes
+  seginstance_warped_subdir: seginstance_warped
+  vehicle_mask_subdir: dynamic_masks
+  sky_mask_subdir: sky_masks
+  metadata_subdir: metadata
+  seginstance_warped_overlay_subdir: seginstance_warped_overlay
+  top20_reference_subdir: top20_reference
+  calibration_subdir: calibration
+reference:
+  top_k: 20
+metadata:
+  seginstance_warped_overlay_background: warped
+  seginstance_warped_overlay_alpha: 0.50
+  seginstance_warped_overlay_draw_ids: true
+models:
+  da3_path: ../../weights/DA3NESTED-GIANT-LARGE-1.1
+  sam3_checkpoint_path: ../../weights/sam3/hub/models--facebook--sam3/snapshots/3c879f39826c281e95690f02c7821c4de09afae7/sam3.pt
+  sam3_bpe_path: ./sam3/sam3/assets/bpe_simple_vocab_16e6.txt.gz
+dataset:
+  datasets:
+  - nuscenes-interpolated
+  split_types:
+  - train
+  - val
+  required_scene_modalities:
+  - ego_state_se3
+  - camera.pcam_f0
+  - camera.pcam_l0
+  shuffle_filter: true
+  target_steps: 200
+  frame_sampling: 1
+  render_directions:
+  - RL # mid->left
+  left_cam_id: camera.pcam_l0
+  target_cam_id: camera.pcam_f0
+  image_size:
+  - 800
+  - 450
+  batch_size: 1
+  shuffle_dataloader: false
+  batch_indices: []
+sam3:
+  prompts:
+  - vehicle
+  - pedestrian
+  prompt: vehicle
+  prompt_frame_index: 0
+  propagation_direction: forward
+  score_thres: 0.5
+  mask_dilate_radius: 0
+  sky_prompts:
+  - sky
+  sky_prompt: sky
+  sky_score_thres: 0.5
+  sky_mask_dilate_radius: 0
+  sky_contract_radius: 6
+  sky_contract_iterations: 3
+motion_static:
+  enabled: true
+  bev_prompts:
+  - vehicle
+  method: center_stability
+  center_motion_threshold_m: 4.0
+  center_percentile: 90
+  min_points: 50
+  min_observations: 3
+  max_gap: null
+  ignore_border_observations: false
+  border_margin: 8
+render:
+  coord_flip_xy: true
+  visibility_mode: target_frustum_static_dynamic_same_frame
+  # Controls seginstance_warped.
+  # same_as_warped is the default and uses the same source-point visibility as
+  # RGB front_warped: static instance masks can use past/current/future points,
+  # while dynamic instance masks stay same-frame only.
+  # dynamic_only keeps the old behavior of saving only moving object IDs.
+  seginstance_object_mode: same_as_warped
+  seginstance_visibility_mode: same_as_warped
+  # For past_to_current only: null means all previous sampled frames.
+  seginstance_max_past_frames: null
+  # Commit the current-frame render first. The global pass is then restricted
+  # to uncovered pixels and nonlocal static points. Background points hidden
+  # by the current dynamic mask remain black instead of being filled.
+  global_fill_static_holes_only: false
+  dynamic_hole_depth_abs_tolerance: 0.10
+  dynamic_hole_depth_rel_tolerance: 0.02
+  dynamic_hole_mask_dilation_radius: 0
+  invalid_dynamic_depth_is_occluded: true
+  no_temporal_persistence: false
+  pixel_center_offset: false
+  render_dynamic_mask: true
+  render_moving: true
+  max_depth: 3000.0
+  sky_depth: 6000.0
+  z_tolerance: 0.3
+  occlusion_sharpness: 3.0
+  batch_size: 10000000
+save:
+  hole_masks: false
+  top20_reference: true
+  calibration: true
+  seginstance_warped: false
+  seginstance_warped_overlay: false
+  vehicle_masks: false
+  sky_masks: false
+  metadata: false

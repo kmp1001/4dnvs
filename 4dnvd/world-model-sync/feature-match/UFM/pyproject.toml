@@ -1,0 +1,364 @@
+
+# ============================================================
+# Build system
+# ============================================================
+
+[build-system]
+requires = [
+    "setuptools>=69,<82",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+
+# ============================================================
+# Python project
+# ============================================================
+
+[project]
+name = "uniflowmatch"
+version = "0.1.0"
+description = "UFM: A Simple Path towards Unified Dense Correspondence with Flow"
+
+authors = [
+    { name = "Yuchen Zhang", email = "yuchenz7@andrew.cmu.edu" },
+    { name = "AirLab", email = "basti@andrew.cmu.edu" },
+]
+
+license = { text = "BSD Clause-3" }
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+
+keywords = [
+    "computer-vision",
+    "optical-flow",
+    "correspondence",
+    "deep-learning",
+    "pytorch",
+    "transformer",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "numpy>=2.0,<3",
+    "matplotlib",
+    "opencv-python-headless",
+    "huggingface-hub",
+    "einops",
+    "gradio",
+]
+
+
+# ============================================================
+# Standard Python optional dependencies
+# ============================================================
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "pre-commit",
+    "pytest",
+]
+
+demo = [
+    "gradio",
+]
+
+all = [
+    "black",
+    "isort",
+    "pre-commit",
+    "pytest",
+    "gradio",
+]
+
+
+# ============================================================
+# Python entry points
+# ============================================================
+
+[project.scripts]
+ufm = "uniflowmatch.cli:main"
+ufm-demo = "gradio_demo:main"
+
+
+# ============================================================
+# Project URLs
+# ============================================================
+
+[project.urls]
+Homepage = "https://uniflowmatch.github.io/"
+Repository = "https://github.com/UniFlowMatch/UFM.git"
+Documentation = "https://uniflowmatch.github.io/"
+"Bug Tracker" = "https://github.com/UniFlowMatch/UFM/issues"
+
+
+# ============================================================
+# Setuptools package discovery
+# ============================================================
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+include = [
+    "uniflowmatch",
+    "uniflowmatch.*",
+]
+
+exclude = [
+    "UniCeption",
+    "UniCeption.*",
+    "Depth-Anything-3",
+    "Depth-Anything-3.*",
+    "sam3",
+    "sam3.*",
+    "tests",
+    "tests.*",
+]
+
+
+# ============================================================
+# Pixi workspace
+#
+# Plain platform strings are intentional. They work with both
+# the older Pixi on A100 and the newer Pixi on GB200.
+# ============================================================
+
+[tool.pixi.workspace]
+channels = [
+    "conda-forge",
+    "nodefaults",
+]
+
+platforms = [
+    "linux-64",
+    "linux-aarch64",
+]
+
+
+# ============================================================
+# Shared Conda dependencies
+# ============================================================
+
+[tool.pixi.dependencies]
+python = "3.11.*"
+
+pip = "*"
+wheel = "*"
+setuptools = "81.*"
+
+ninja = "*"
+cmake = "*"
+pkg-config = "*"
+
+numpy = ">=2.0,<3"
+
+
+# ============================================================
+# PyPI dependency override
+# ============================================================
+
+[tool.pixi.pypi-options.dependency-overrides]
+numpy = ">=2.0,<3"
+
+
+# ============================================================
+# Pixi environments
+# ============================================================
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+
+dev = {
+    features = ["dev"],
+    solve-group = "default",
+}
+
+demo = {
+    features = ["demo"],
+    solve-group = "default",
+}
+
+all = {
+    features = ["dev", "demo"],
+    solve-group = "default",
+}
+
+
+# ============================================================
+# Pixi features
+# ============================================================
+
+[tool.pixi.feature.dev.pypi-dependencies]
+black = "*"
+isort = "*"
+pre-commit = "*"
+pytest = "*"
+
+[tool.pixi.feature.demo.pypi-dependencies]
+gradio = "*"
+
+
+# ============================================================
+# Shared PyPI dependencies
+# ============================================================
+
+[tool.pixi.pypi-dependencies]
+addict = ">=2.4,<3"
+flow-vis = "*"
+
+uniception = {
+    path = "./UniCeption",
+    editable = true,
+}
+
+depth-anything-3 = {
+    path = "./Depth-Anything-3",
+    editable = true,
+}
+
+sam3 = {
+    path = "./sam3",
+    editable = true,
+}
+
+moviepy = "==1.0.3"
+safetensors = "*"
+omegaconf = "*"
+trimesh = "*"
+evo = "*"
+e3nn = "*"
+plyfile = "*"
+pillow-heif = "*"
+
+fastapi = "*"
+uvicorn = "*"
+requests = "*"
+typer = "*"
+pillow = "*"
+
+py123d = {
+    version = "*",
+    extras = ["av2", "nuscenes"],
+}
+
+boto3 = "*"
+
+
+# ============================================================
+# A100: Linux x86-64 / CUDA 12.8
+# ============================================================
+
+[tool.pixi.target.linux-64.dependencies]
+libgl = "*"
+open3d = "0.19.*"
+pycolmap = "*"
+
+[tool.pixi.target.linux-64.pypi-dependencies]
+torch = {
+    version = "==2.11.*",
+    index = "https://download.pytorch.org/whl/cu128",
+}
+
+torchvision = {
+    version = "==0.26.*",
+    index = "https://download.pytorch.org/whl/cu128",
+}
+
+torchaudio = {
+    version = "==2.11.*",
+    index = "https://download.pytorch.org/whl/cu128",
+}
+
+xformers = "==0.0.35"
+
+
+# ============================================================
+# GB200: Linux ARM64 / CUDA 13.0
+# ============================================================
+
+[tool.pixi.target.linux-aarch64.dependencies]
+libgl = "*"
+open3d = "0.19.*"
+pycolmap = "*"
+
+[tool.pixi.target.linux-aarch64.pypi-dependencies]
+torch = "==2.11.*"
+torchvision = "==0.26.*"
+torchaudio = "==2.11.*"
+
+
+# ============================================================
+# Pixi tasks
+# ============================================================
+
+[tool.pixi.tasks]
+ufm = "python -m uniflowmatch.cli"
+demo = "python gradio_demo.py"
+
+uc-validate = "uniception-validate"
+uc-download = "uniception-download-checkpoints"
+
+install-root = "python -m pip install --no-deps --no-build-isolation -e ."
+
+verify-platform = "python -c \"import platform; print('machine:', platform.machine()); print('platform:', platform.platform())\""
+
+verify-numpy = "python -c \"import numpy; print('numpy:', numpy.__version__)\""
+
+verify-torch = "python -c \"import torch; print('torch:', torch.__version__); print('torch CUDA:', torch.version.cuda); print('CUDA available:', torch.cuda.is_available()); print('GPU:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'none')\""
+
+verify-open3d = "python -c \"import open3d; print('open3d:', open3d.__version__)\""
+
+verify-pycolmap = "python -c \"import pycolmap; print('pycolmap:', pycolmap.__version__); print('location:', pycolmap.__file__)\""
+
+verify-local-packages = "python -c \"import importlib.util; print('uniception:', importlib.util.find_spec('uniception') is not None); print('sam3:', importlib.util.find_spec('sam3') is not None); print('depth_anything_3:', importlib.util.find_spec('depth_anything_3') is not None)\""
+
+verify-xformers = "python -c \"import importlib.util; print('xformers:', importlib.util.find_spec('xformers') is not None)\""
+
+
+# ============================================================
+# Activation environment
+# ============================================================
+
+[tool.pixi.activation.env]
+PYTHONWARNINGS = "ignore"
+
+
+# ============================================================
+# Black
+# ============================================================
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+include = '\\.pyi?$'
+
+
+# ============================================================
+# isort
+# ============================================================
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+skip = [
+    ".pixi",
+    "UniCeption",
+    "Depth-Anything-3",
+    "sam3",
+]
